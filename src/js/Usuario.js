@@ -1,9 +1,14 @@
-import {Api} from "./API.js"
-class Usuario {
-constructor(nome,email,senha){
-    this.name = nome
+class UsuarioLogin{
+constructor(email,senha){
     this.email = email
     this.password = senha
 }
 }
-export{Usuario}
+class UsuarioCadastro{
+    constructor(nome,email,senha){
+        this.name = nome
+        this.email = email
+        this.password = senha
+    }
+}
+export{UsuarioLogin,UsuarioCadastro}
