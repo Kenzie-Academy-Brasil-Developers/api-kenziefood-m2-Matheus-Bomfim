@@ -49,6 +49,10 @@ header {
   display: flex;
   margin-right: 115px;
 }
+input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
 
 #pesquisarProduto {
   width: 263px;
@@ -68,6 +72,7 @@ header {
   border-radius: 100%;
   border: none;
   margin-left: 10px;
+  background-color: #ffffff;
 }
 
 .vitrine {
