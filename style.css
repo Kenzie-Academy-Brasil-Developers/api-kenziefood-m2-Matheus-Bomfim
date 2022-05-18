@@ -1,0 +1,205 @@
+@import url(https://fonts.google.com/specimen/Poppins);
+
+body {
+  background-color: #fafafa;
+}
+
+header {
+  width: 100vw;
+  height: 73px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0px 0px 40px -18px rgba(0, 0, 0, 0.25);
+}
+
+.containerHeader {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container_texto {
+  background-color: #ffffff;
+  width: 122px;
+  height: 33px;
+  display: flex;
+  align-items: baseline;
+  top: 20px;
+  margin-left: 117px;
+  justify-content: space-between;
+}
+
+.texto {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0em;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.p1 {
+  font-size: 22px;
+  line-height: 33px;
+  width: 74px;
+  text-align: left;
+  height: 33px;
+  color: rgba(33, 37, 41, 1);
+}
+.p2 {
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+  color: rgba(255, 34, 83, 1);
+}
+
+.inputUser {
+  display: flex;
+}
+
+#pesquisarProduto {
+  margin-right: 20px;
+}
+
+.user {
+  border-radius: 100%;
+  border: none;
+  margin-left: 50px;
+}
+
+.vitrine {
+  display: flex;
+  flex-direction: column;
+}
+
+.container_categorias {
+  width: 601px;
+  height: 48px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container_categorias button {
+  width: max-content;
+  padding: 15px 20px;
+  height: 100%;
+  gap: 15px;
+  border-radius: 32px;
+  width: max-content;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+}
+
+.todos {
+  background-color: rgba(255, 34, 83, 1);
+  box-sizing: border-box;
+  color: #f8f9fa;
+  border: 1.5px solid #ff2253;
+}
+
+.panificadora_e_frutas {
+  background: rgb(241, 253, 255);
+  color: rgba(33, 37, 41, 1);
+  box-sizing: border-box;
+  border: 1.5px solid rgb(241, 253, 255);
+}
+
+.bebidas {
+  background: rgba(243, 238, 245, 1);
+  color: rgba(33, 37, 41, 1);
+  box-sizing: border-box;
+  border: 1.5px solid rgba(243, 238, 245, 1);
+}
+
+main {
+  display: flex;
+  margin-top: 50px;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 100%;
+}
+
+li {
+  max-width: 303px;
+  max-height: 397px;
+  margin-bottom: 20px;
+}
+
+.cardProdutos {
+  display: flex;
+  width: 930px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 50px;
+  justify-content: space-between;
+}
+
+.imagemProduto {
+  height: 200px;
+  width: 300px;
+}
+
+.tituloProduto {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 27px;
+  color: #000000;
+}
+
+.textoProduto {
+  color: #868e96;
+}
+
+.adicionarParaCarrinho {
+  background-color: #e4f7ef;
+  border: none;
+  border-radius: 100%;
+}
+
+.carrinho {
+  height: 296px;
+
+  background: #f8f9fa;
+  border-radius: 0px 0px 12px 12px;
+  color: rgba(134, 142, 150, 1);
+}
+
+.cabecalhoCarrinho {
+  background-color: #ff2253;
+  height: 56px;
+  border-radius: 12px 12px 0px 0px;
+  display: flex;
+  align-items: center;
+}
+.imagemDoCarrinho {
+  margin-left: 23px;
+}
+
+.containerCarrinho {
+  display: flex;
+  align-items: center;
+}
+
+.textoCarrinho {
+  margin-left: 57px;
+  color: rgba(255, 255, 255, 1);
+  text-transform: capitalize;
+  font-family: "Poppins";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+}
