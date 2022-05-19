@@ -1,92 +1,6 @@
 import { Api } from "./API.js";
 import {UsuarioLogin,UsuarioCadastro} from "./Usuario.js"
 
-async function templateProdutos(obj) {
-
-  const listarProdutos = document.querySelector(".cardProdutos");
-
-    listarProdutos.innerHTML += `
-      <li class="box">
-            <img class="imagemProduto" src="${obj.imagem}" alt="panqueca">
-            <h2 class="tituloProduto">${obj.nome}</h2 class="tituloProduto">
-              <p class="textoProduto">${obj.descricao}</p>
-          
-                <p class="categoria">${obj.categoria}</p>          
-             
-              <div class="finaliza">
-                <p class="preco">${obj.preco.toLocaleString("pt-BR", {
-                  minimunFractionDigits: 2,
-                  style: "currency",
-                  currency: "BRL",
-                })}</p>
-                <button id=${obj.id} class="adicionarParaCarrinho">
-                <img src="./src/img/Text.svg" alt="carrinho de compras">
-              </button>
-              </div>
-            </li>`;
-}
-
-const produtos = await Api.produtosPublicos();
-
-produtos.forEach(element => {
-    console.log(element)
-    templateProdutos(element)
-});
-
-
-const busca = document.getElementById("pesquisarProduto")
-let container = document.getElementById("cardProdutos")
-
-busca.onkeyup = (event) => {
-    let dado = busca.value
-    container.innerHTML = ""
-    produtos.forEach(element => {
-        if(element.nome.toUpperCase().includes(dado.toUpperCase().trim()) == true){
-            templateProdutos(element)
-        }
-    });
-}
-
-let btnTodos = document.getElementById("btnTodos")
-let btnPanificadora = document.getElementById("btnPanificadora")
-let btnFrutas = document.getElementById("btnFrutas")
-let btnBebidas = document.getElementById("btnBebidas")
-
-btnTodos.addEventListener("click", () => {
-    container.innerHTML = ""
-    produtos.forEach(element => {
-        templateProdutos(element)
-    });
-})
-
-btnPanificadora.addEventListener("click", () => {
-    container.innerHTML = ""
-    produtos.forEach(element => {
-        if(element.categoria.toUpperCase() == "PANIFICADORA"){
-            templateProdutos(element)
-        }
-    });
-})
-
-btnFrutas.addEventListener("click", () => {
-    container.innerHTML = ""
-    produtos.forEach(element => {
-        if(element.categoria.toUpperCase() == "FRUTAS"){
-            templateProdutos(element)
-        }
-    });
-})
-
-btnBebidas.addEventListener("click", () => {
-    container.innerHTML = ""
-    produtos.forEach(element => {
-        if(element.categoria.toUpperCase() == "BEBIDAS"){
-            templateProdutos(element)
-        }
-    });
-})
-
-
 function loginUsuario(){
     const buttonUser = document.querySelector(".user")
     const login = document.querySelector(".loginCadastro")
@@ -108,12 +22,12 @@ function loginUsuario(){
             Api.token = loginToken
             setTimeout(()=>{
                 login.innerHTML = "<p>Login Efetuado com Sucesso</p>"
-            },3000)
+            },2000)
   
             setTimeout(()=>{
                 login.innerHTML = `
                 <button id="fecharmain">X</button>
-                <button id="dashboard">DashBoard</button>
+                <button id="dashboard">Home</button>
                 <button id="logout">Logout</button>
                 `
                 const fecharmain = document.querySelector("#fecharmain")
@@ -123,7 +37,7 @@ function loginUsuario(){
                 })
                 
                 login.style.display = "none"
-            },6000)
+            },5000)
         }
         else{
             const p = document.getElementById("falho")
@@ -160,7 +74,7 @@ function loginUsuario(){
               if(localStorage.getItem("token") && e.target.id == "fecharmain"){
               login.innerHTML = `
               <button id="fecharmain">X</button>
-              <button id="dashboard">DashBoard</button>
+              <button id="dashboard">Home</button>
               <button id="logout">Logout</button>
               `
               login.style.display = "none"
@@ -203,24 +117,53 @@ function loginUsuario(){
                 localStorage.removeItem("token")
                 login.innerHTML = "<p>Logout Realizado Com Sucesso</p>"
                 setTimeout(()=>{
-                    window.location.reload()
+                    window.location = "./../../index.html"
                 },3000)
             }
         })
         if(localStorage.getItem("token")){
           login.innerHTML = `
           <button id="fecharmain">X</button>
-          <button id="dashboard">DashBoard</button>
+          <button id="dashboard">Home</button>
           <button id="logout">Logout</button>
           `
           }
   
           document.addEventListener("click",(e)=>{
               if(e.target.id == "dashboard"){
-                  window.location = "./src/pages/indexDashboard.html"
+                  window.location = "./../../index.html"
               }
           })
-  
   }
   
   loginUsuario()
+
+
+  async function templateDashboard(){
+    const produtos = await Api.produtosPublicos();
+
+    const listarProdutosDashboard = document.querySelector('#listaDeProdutosDashboard');
+
+    produtos.forEach((produto)=>{
+        listarProdutosDashboard.innerHTML += `
+        <li>
+            <div id="identProdutos">
+                <img src="${produto.imagem}">
+                <h3>${produto.nome}</h3>
+            </div>
+        
+            <div id="categoria">
+                <p>${produto.categoria}</p>
+            </div>
+            <div id="descricaoDashboard">
+            ${produto.descricao}
+            </div>
+        
+            <div id="acoes">
+                <img src="../img/EditarIcon.png" id="acoesEditar">
+                <img src="../img/LixeiraIcon.png" id="acoesexcluir">
+            </div>
+      </li>`;
+    });
+};
+templateDashboard();

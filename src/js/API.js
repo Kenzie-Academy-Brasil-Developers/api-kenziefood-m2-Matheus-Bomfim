@@ -29,10 +29,10 @@ class Api{
         return response
     }
 
-    static async produtosPrivados(){
+    static async produtosPrivados(token){
         const response = await fetch("https://api-kenzie-food.herokuapp.com/my/products",{
             method:"GET",
-            headers: {"Authorization": `Bearer ${Api.token}`}
+            headers: {"Authorization": `Bearer ${token}`}
         }).then(response => response.json()).then(response => response).catch(err => console.error(err))
 
         return response
