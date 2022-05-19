@@ -203,3 +203,69 @@ function loginUsuario(){
 }
 
 loginUsuario()
+
+function criaCardCarrinho(obj){
+    const containerCarrinho = document.getElementById("containerCarrinho")
+    
+    containerCarrinho.innerHTML += `<div class="cardCarrinho">
+    <img src="${obj.imagem}" alt="" class="imgCardCarrinho">
+      <div class="textoCarrinho">
+        <p class="nomeCarrinho">${obj.nome}</p>
+        <p class="categoriaCarrinho">${obj.categoria}</p>
+        <p class="precoCarrinho">R$ ${obj.preco}</p>
+      </div>
+    <button class="removerCarrinho" id="excluir">
+      <img src="./src/img/lixeira.svg" class="imgExcluir" alt="">
+    </button>
+  </div>` 
+
+}
+
+let btnAdicionarCarrinho = document.querySelectorAll("button")
+
+let contador = 0
+let quantidade = document.getElementById("textoNum")
+let total = document.getElementById("textoPreco")
+let precoTotal = 0
+
+
+function adicionandoEventListener(){
+    btnAdicionarCarrinho.forEach(element => {
+        element.addEventListener("click", (event) => {
+            produtos.forEach(elem => {
+                if(event.currentTarget.id == elem.id){
+                    let statusCompra = document.getElementById("divStatusCompra")
+                    statusCompra.classList.remove("hidden")
+                    let hidden = document.getElementById("hidden")
+                    hidden.classList.add("hidden")
+                    containerCarrinho.classList = "containerCarrinhoCheio"
+                    contador++
+                    quantidade.innerText = contador
+                    precoTotal += elem.preco
+                    total.innerText = `R$ ${precoTotal}`
+                    criaCardCarrinho(elem)
+                }
+            })
+        })
+    });
+}
+adicionandoEventListener()
+
+document.addEventListener("click", (event) => {
+    if(event.target.src == "http://127.0.0.1:5500/src/img/lixeira.svg"){
+        let preco = event.path[2].children[1].children[2].innerHTML
+        let precoNum = parseFloat(preco.split(" ")[1])
+        event.path[2].style.display = "none"
+        contador--
+        quantidade.innerText = contador
+        precoTotal -= precoNum
+        total.innerText = `R$ ${precoTotal}`
+    }
+    if(contador == 0){
+        containerCarrinho.classList = "containerCarrinhoVazio"
+        let statusCompra = document.getElementById("divStatusCompra")
+        statusCompra.classList.add("hidden")
+        let hidden = document.getElementById("hidden")
+        hidden.classList.remove("hidden")
+    }
+})
