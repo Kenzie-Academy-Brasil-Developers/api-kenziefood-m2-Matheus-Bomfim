@@ -14,7 +14,7 @@
     <div class="cadastrarProdutoContainer">
       <div class="headerCadastroProduto">
         <h3>Cadastro de produto</h3>
-        <img src="./../img/fecharIcon.png" alt="">
+        <img src="./../img/fecharIcon.png" id="fecharCadastro">
       </div>
       <div class="mainCadastroProduto">
 
@@ -27,9 +27,9 @@
         <div class="cadastroCategorias">
           <label>Categorias
               <ul id="categoriasUl">
-                <li class="categoriaAtivado">Panificadora</li>
-                <li class="categoriaAtivado">Bebidas</li>
-                <li class="categoriaAtivado">Frutas</li>
+                <li class="categoriaLi" id="cadastroCategoriaPani">Panificadora</li>
+                <li class="categoriaLi" id="cadastroCategoriaBebidas">Bebidas</li>
+                <li class="categoriaLi" id="cadastroCategoriaFrutas">Frutas</li>
               </ul>
             </label> 
           </div>
@@ -43,47 +43,46 @@
           <button id="botaoCadastrar">Cadastrar Produto</button>
       </div>
       </div>
-    <!-- <div class="editarProdutoContainer">
-      <div class="headerCadastroProduto">
+    <div class="editarProdutoContainer">
+      <div class="headerEditarProduto">
         <h3>Edição de produto</h3>
-        <img src="./../img/fecharIcon.png" alt="">
+        <img src="./../img/fecharIcon.png" alt="" id="fecharEditar">
       </div>
-      <div class="mainCadastroProduto">
+      <div class="mainEditarProduto">
 
         <label >Nome do Produto
-          <input type="text" name="editarNome" class="cadastroNome" placeholder="Digitar o nome">
+          <input type="text" name="editarNome" class="editarNome" placeholder="Digitar o nome">
         </label>          
         <label>Descrição
-          <input type="text" name="editarDescricao" class="cadastroDescricao" placeholder="Digitar a descrição">
+          <input type="text" name="editarDescricao" class="editarDescricao" placeholder="Digitar a descrição">
         </label>
         <div class="cadastroCategorias">
           <label>Categorias
               <ul id="categoriasUl">
-                <li class="categoriaAtivado">Panificadora</li>
-                <li class="categoriaAtivado">Bebidas</li>
-                <li class="categoriaAtivado">Frutas</li>
+                <li class="categoriaLi" id="editarCategoriaPani">Panificadora</li>
+                <li class="categoriaLi" id="editarCategoriaBebidas">Bebidas</li>
+                <li class="categoriaLi" id="editarCategoriaFrutas">Frutas</li>
               </ul>
             </label> 
           </div>
           <label>Valor do Produto
-            <input type="text" name="editarValor" class="cadastroValor" placeholder="Digitar o valor aqui">
+            <input type="text" name="editarValor" class="editarValor" placeholder="Digitar o valor aqui">
           </label>
           
           <label>Link da imagem
-            <input type="text" name="cadastroImg" class="cadastroImg" placeholder="Inserir link">
+            <input type="text" name="editarImg" class="editarImg" placeholder="Inserir link">
           </label>
           <div id="acoesEditar">
             <button id="botaoEditarExcluir">Excluir</button>
             <button id="botaoEditarSalvar">Salvar alterações</button>
           </div>
       </div>
-      </div> -->
+      </div>
 
-
-      <!-- <div id="ConfirmarExclusao">
+      <div id="confirmarExclusao">
         <div id="headerExclusao">
           <h3>Exclusão de produto</h3>
-          <img src="./../img/fecharIcon.png" alt="">
+          <img src="./../img/fecharIcon.png" alt="" id="fecharExclusao">
         </div>
         <div id="mainExclusao">
           <h3>Tem certeza que deseja exluir este produto?</h3>
@@ -92,7 +91,7 @@
           <button class="botaoExclusao">Não</button>
         </div>
       </div>
-    </div> -->
+    </div>
     <div id="statusBox">
       <div id="headerStatus">
         <h3>Status</h3>
