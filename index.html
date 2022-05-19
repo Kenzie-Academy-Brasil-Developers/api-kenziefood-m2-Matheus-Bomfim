@@ -120,10 +120,28 @@
         <h1 class="textoCarrinho">carrinho</h1>
       </div>  
 
-        <div class="containerCarrinho">
-          <p>Por enquanto não temos produtos no carrinho</p> 
-        </div>
+        <div class="containerCarrinhoVazio" id="containerCarrinho">
+          <p id="hidden">Por enquanto não temos produtos no carrinho</p> 
+
+          <!-- <div class="cardCarrinho">
+            <img src="" alt="" class="imgCardCarrinho">
+              <div class="textoCarrinho">
+                <p class="nomeCarrinho">Nome do produto</p>
+                <p class="categoriaCarrinho">Categoria</p>
+                <p class="precoCarrinho">R$ 10</p>
+              </div>
+            <button class="removerCarrinho">
+              <img src="./src/img/lixeira.svg" alt="">
+            </button>
+          </div> -->
       
+
+        </div>
+        <div class="statusCompra hidden" id="divStatusCompra">
+          <div id="quantidade"><p id="textoQuantidade">Quantidade</p> <p id="textoNum"> num</p> </div>
+          <div id="preco"> <p id="textoTotal">Total</p> <p id="textoPreco">R$ 78,00</p></div>
+        </div>
+
     </aside>
 
 </main>
