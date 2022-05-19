@@ -3,7 +3,7 @@ import {UsuarioLogin,UsuarioCadastro} from "./Usuario.js"
 async function templateProdutos() {
   const produtos = await Api.produtosPublicos();
 
-  const listarProdutos = document.querySelector("ul");
+  const listarProdutos = document.querySelector(".cardProdutos");
 
   produtos.forEach((produto) => {
     console.log(produto);
@@ -27,7 +27,7 @@ async function templateProdutos() {
               </div>
             </li>`;
   });
-}
+};
 
 templateProdutos();
 
@@ -147,3 +147,32 @@ function loginUsuario(){
 }
 
 loginUsuario()
+
+async function templateDashboard(){
+    const produtos = await Api.produtosPublicos();
+
+    const listarProdutosDashboard = document.querySelector('#listaDeProdutosDashboard');
+
+    produtos.forEach((produto)=>{
+        listarProdutosDashboard.innerHTML += `
+        <li>
+            <div id="identProdutos">
+                <img src="${produto.imagem}">
+                <h3>${produto.nome}</h3>
+            </div>
+        
+            <div id="categoria">
+                <p>${produto.categoria}</p>
+            </div>
+            <div id="descricaoDashboard">
+            ${produto.descricao}
+            </div>
+        
+            <div id="acoes">
+                <img src="../img/EditarIcon.png" id="acoesEditar">
+                <img src="../img/LixeiraIcon.png" id="acoesexcluir">
+            </div>
+      </li>`;
+    });
+};
+templateDashboard();

@@ -63,6 +63,11 @@ header {
   text-align: initial;
   padding-left: 48px;
 }
+#pesquisarProduto:focus{
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+
 
 .user {
   border-radius: 100%;
