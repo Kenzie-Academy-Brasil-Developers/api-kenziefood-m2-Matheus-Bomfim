@@ -1,35 +1,91 @@
 import { Api } from "./API.js";
 import {UsuarioLogin,UsuarioCadastro} from "./Usuario.js"
-async function templateProdutos() {
-  const produtos = await Api.produtosPublicos();
+
+async function templateProdutos(obj) {
 
   const listarProdutos = document.querySelector("ul");
 
-  produtos.forEach((produto) => {
-    console.log(produto);
     listarProdutos.innerHTML += `
       <li class="box">
-            <img class="imagemProduto" src="${produto.imagem}" alt="panqueca">
-            <h2 class="tituloProduto">${produto.nome}</h2 class="tituloProduto">
-              <p class="textoProduto">${produto.descricao}</p>
+            <img class="imagemProduto" src="${obj.imagem}" alt="panqueca">
+            <h2 class="tituloProduto">${obj.nome}</h2 class="tituloProduto">
+              <p class="textoProduto">${obj.descricao}</p>
           
-                <p class="categoria">${produto.categoria}</p>          
+                <p class="categoria">${obj.categoria}</p>          
              
               <div class="finaliza">
-                <p class="preco">${produto.preco.toLocaleString("pt-BR", {
+                <p class="preco">${obj.preco.toLocaleString("pt-BR", {
                   minimunFractionDigits: 2,
                   style: "currency",
                   currency: "BRL",
                 })}</p>
-                <button id=${produto.id} class="adicionarParaCarrinho">
+                <button id=${obj.id} class="adicionarParaCarrinho">
                 <img src="./src/img/Text.svg" alt="carrinho de compras">
               </button>
               </div>
             </li>`;
-  });
 }
 
-templateProdutos();
+const produtos = await Api.produtosPublicos();
+
+produtos.forEach(element => {
+    console.log(element)
+    templateProdutos(element)
+});
+
+
+const busca = document.getElementById("pesquisarProduto")
+let container = document.getElementById("cardProdutos")
+
+busca.onkeyup = (event) => {
+    let dado = busca.value
+    container.innerHTML = ""
+    produtos.forEach(element => {
+        if(element.nome.toUpperCase().includes(dado.toUpperCase().trim()) == true){
+            templateProdutos(element)
+        }
+    });
+}
+
+let btnTodos = document.getElementById("btnTodos")
+let btnPanificadora = document.getElementById("btnPanificadora")
+let btnFrutas = document.getElementById("btnFrutas")
+let btnBebidas = document.getElementById("btnBebidas")
+
+btnTodos.addEventListener("click", () => {
+    container.innerHTML = ""
+    produtos.forEach(element => {
+        templateProdutos(element)
+    });
+})
+
+btnPanificadora.addEventListener("click", () => {
+    container.innerHTML = ""
+    produtos.forEach(element => {
+        if(element.categoria.toUpperCase() == "PANIFICADORA"){
+            templateProdutos(element)
+        }
+    });
+})
+
+btnFrutas.addEventListener("click", () => {
+    container.innerHTML = ""
+    produtos.forEach(element => {
+        if(element.categoria.toUpperCase() == "FRUTAS"){
+            templateProdutos(element)
+        }
+    });
+})
+
+btnBebidas.addEventListener("click", () => {
+    container.innerHTML = ""
+    produtos.forEach(element => {
+        if(element.categoria.toUpperCase() == "BEBIDAS"){
+            templateProdutos(element)
+        }
+    });
+})
+
 
 function loginUsuario(){
   const buttonUser = document.querySelector(".user")
