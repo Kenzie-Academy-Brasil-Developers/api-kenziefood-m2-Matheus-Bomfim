@@ -26,6 +26,37 @@ async function templateProdutos(obj) {
             </li>`;
 }
 
+async function templateDashboard(){
+    const produtos = await Api.produtosPublicos();
+
+    const listarProdutosDashboard = document.querySelector('#listaDeProdutosDashboard');
+
+    produtos.forEach((produto)=>{
+        console.log(produto)
+        listarProdutosDashboard.innerHTML += `
+        <li>
+            <div id="identProdutos">
+                <img src=${produto.imagem}>
+                <h3>${produto.nome}</h3>
+            </div>
+        
+            <div id="categoria">
+                <p>${produto.categoria}</p>
+            </div>
+            <div id="descricaoDashboard">
+            ${produto.descricao}
+            </div>
+        
+            <div id="acoes">
+                <img src="../img/EditarIcon.png" id="acoesEditar">
+                <img src="../img/LixeiraIcon.png" id="acoesexcluir">
+            </div>
+      </li>`;
+    });
+};
+templateDashboard();
+
+
 const produtos = await Api.produtosPublicos();
 
 produtos.forEach(element => {
@@ -204,31 +235,9 @@ function loginUsuario(){
 
 loginUsuario()
 
-async function templateDashboard(){
-    const produtos = await Api.produtosPublicos();
+const addNovoProduto = document.querySelector("#addNovoProduto")
 
-    const listarProdutosDashboard = document.querySelector('#listaDeProdutosDashboard');
-
-    produtos.forEach((produto)=>{
-        listarProdutosDashboard.innerHTML += `
-        <li>
-            <div id="identProdutos">
-                <img src="${produto.imagem}">
-                <h3>${produto.nome}</h3>
-            </div>
-        
-            <div id="categoria">
-                <p>${produto.categoria}</p>
-            </div>
-            <div id="descricaoDashboard">
-            ${produto.descricao}
-            </div>
-        
-            <div id="acoes">
-                <img src="../img/EditarIcon.png" id="acoesEditar">
-                <img src="../img/LixeiraIcon.png" id="acoesexcluir">
-            </div>
-      </li>`;
-    });
-};
-templateDashboard();
+addNovoProduto.addEventListener("click", function(){
+    const containerAddProduto = document.querySelector(".cadastrarProdutoContainer")
+    containerAddProduto.style.display = 'flex'
+})
