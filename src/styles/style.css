@@ -68,6 +68,8 @@ header {
   border-radius: 100%;
   border: none;
   margin-left: 10px;
+  background: none;
+  cursor: pointer;
 }
 
 .vitrine {
@@ -253,7 +255,46 @@ li {
   text-align: center;
   border-radius: 0px 0px 12px 12px;
 }
+.loginCadastro{
+  width: 180px;
+  height: 210px;
+  position: absolute;
+  margin: 64px 1162px;
+  background-color: darkgrey;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: none;
+}
+.loginCadastro > input{
+  width: 150px;
+  margin: 10px;
+  border-radius: 10%;
+}
+.loginCadastro > a{
+  cursor: pointer;
+  margin: 10px;
+}
+#fazercadastro, #logout, #fazerlogin{
+  background-color: #ff2253;
+  border: none;
+  border-radius: 10%;
+  width: 120px;
+  height: 30px;
+  cursor: pointer;
+}
 
+#fecharlogincadastro,#fecharcadastro,#fecharmain{
+  cursor: pointer;
+  border: none;
+  background: none;
+  margin-left: 130px;
+  margin-bottom: 10px; 
+}
+
+#fazercadastro:hover,#fazercadastro:hover, #logout:hover{
+  transform: scale(1.1)
+}
 
 @media (max-width: 375px){
   header{

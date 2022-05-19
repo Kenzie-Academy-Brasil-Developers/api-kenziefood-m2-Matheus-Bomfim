@@ -9,7 +9,7 @@ class API {
 
 }
 
-let container = document.getElementById("container")
+const container = document.getElementById("container")
 
 
 function render(obj){
@@ -18,14 +18,14 @@ function render(obj){
         container.appendChild(item)
 }
 
-let array = await API.publicRequest()
+const array = await API.publicRequest()
 
 array.forEach(element => {
     render(element)
 });
 
-let busca = document.getElementById("texto")
-let btn = document.getElementById("btn")
+const busca = document.getElementById("texto")
+const btn = document.getElementById("btn")
 
 busca.onkeyup = (event) => {
     console.log(event)
