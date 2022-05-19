@@ -1,49 +1,55 @@
-@import url("https://fonts.googleapis.com/css2? family= Inter:wght@400;500;700 & family= Poppins:wght@400;500;700 & display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap");
 header {
+  width: 100vw;
+  height: 73px;
+  background-color: rgb(255, 255, 255);
   display: flex;
   align-items: center;
-  background-color: #ffffff;
-  margin-bottom: 40px;
   justify-content: space-between;
-  padding: 20px;
   box-shadow: 0px 0px 40px -18px rgba(0, 0, 0, 0.25);
-}
-input:focus {
-  box-shadow: 0 0 0 0;
-  outline: 0;
-}
-#tituloHeader {
-  display: flex;
-  align-items: center;
-  margin-left: 100px;
-}
-#inputsHeader {
-  display: flex;
-  align-items: baseline;
-  margin-right: 125px;
-}
-#texto1 {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 21.6949px;
-  line-height: 33px;
-  color: #212529;
-}
-#texto2 {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16.2712px;
-  line-height: 24px;
-  color: #ff2253;
-  margin-left: 5px;
+  margin-bottom: 40px;
 }
 
-header input {
-  width: 228px;
+.container_texto {
+  background-color: #ffffff;
+  width: 122px;
+  height: 33px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-left: 117px;
+}
+
+.texto {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.p1 {
+  font-size: 22px;
+  line-height: 33px;
+  width: 74px;
+  text-align: left;
+  height: 33px;
+  color: rgba(33, 37, 41, 1);
+}
+.p2 {
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+  color: rgba(255, 34, 83, 1);
+}
+
+.inputUser {
+  display: flex;
+  margin-right: 115px;
+}
+
+#pesquisarProduto {
+  width: 263px;
   height: 49px;
-  background-color: #e9ecef;
+  background-color: #E9ECEF;
   border: none;
   color: #868e96;
   font-size: 16px;
@@ -52,21 +58,19 @@ header input {
   border-radius: 12px;
   text-align: initial;
   padding-left: 48px;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  color: #868e96;
 }
-#lupa {
+#lupa{
   position: relative;
   left: 35px;
 }
+
+
 .user {
+  border-radius: 100%;
   border: none;
-  background-color: #ffffff;
+  margin-left: 10px;
+  background: none;
+  cursor: pointer;
 }
 #filtrosBox {
   margin-left: 115px;
@@ -230,12 +234,12 @@ header input {
   line-height: 24px;
   color: #868e96;
 }
-#listaDeProdutos {
+#listaDeProdutosDashboard {
   display: flex;
   flex-direction: column;
 }
 
-#listaDeProdutos li {
+#listaDeProdutosDashboard li {
   display: flex;
   box-sizing: border-box;
   background: #ffffff;
@@ -247,7 +251,7 @@ header input {
   margin-right: 150px;
   margin-bottom: 15px;
 }
-#listaDeProdutos li:hover {
+#listaDeProdutosDashboard li:hover {
   background-color: #f2f2f7;
 }
 #identProdutos {
@@ -256,14 +260,14 @@ header input {
   margin-left: 15px;
 }
 
-#listaDeProdutos li img {
+#listaDeProdutosDashboard li img {
   width: 32px;
   height: 32px;
 
   background: url(.jpg);
   border-radius: 150px;
 }
-#listaDeProdutos li h3 {
+#listaDeProdutosDashboard li h3 {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
@@ -283,8 +287,6 @@ header input {
   margin: 10px;
   width: 93px;
   height: 27px;
-  left: 466px;
-  top: 296px;
   background: #f8f9fa;
   border-radius: 8px;
   font-family: "Poppins";
@@ -300,13 +302,17 @@ header input {
   cursor: pointer;
 }
 
-#listaDeProdutos span {
+#descricaoDashboard {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
   color: #868e96;
+  max-width: 285px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #acoes {
@@ -641,4 +647,46 @@ header input {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
+}
+
+.loginCadastro{
+  width: 180px;
+  height: 210px;
+  position: absolute;
+  margin: 64px 1162px;
+  background-color: darkgrey;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: none;
+}
+.loginCadastro > input{
+  width: 150px;
+  margin: 10px;
+  border-radius: 10%;
+}
+.loginCadastro > a{
+  cursor: pointer;
+  margin: 10px;
+}
+#fazercadastro, #logout, #fazerlogin, #dashboard{
+  background-color: #ff2253;
+  border: none;
+  border-radius: 10%;
+  width: 120px;
+  height: 30px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#fecharlogincadastro,#fecharcadastro,#fecharmain{
+  cursor: pointer;
+  border: none;
+  background: none;
+  margin-left: 130px;
+  margin-bottom: 10px; 
+}
+
+#fazercadastro:hover,#fazercadastro:hover, #logout:hover{
+  transform: scale(1.1)
 }

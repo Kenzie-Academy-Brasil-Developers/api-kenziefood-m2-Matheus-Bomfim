@@ -62,21 +62,29 @@
       </div>
       <div id="barraStatus" class="statusSucesso statusErro"></div>
     </div> -->
+        <div class="loginCadastro">
+      <button id="fecharlogincadastro">X</button>
+      <input type="text" id="email"placeholder="E-mail">
+      <input type="password" id="senha" placeholder="Senha">
+      <button id="fazerlogin">Login</button>
+      <p id="falho"></p>
+      <a id="Cadastro">Cadastre-se</a>
+    </div>
     <header>
-      <div id="tituloHeader">
-        <p id="texto1">Kenzie</p>
-        <p id="texto2">Food</p>
+      <div class="container_texto"> 
+        <h1 class="texto p1">Kenzie</h1>
+        <h1 class="texto p2">food</h1>
       </div>
-      <div id="inputsHeader">
-        <img src="../img/LupaIcon.png" alt="" id="lupa">
-        <input type="text" name="Pesquisa" placeholder="Pesquisar por produto" id="pesquisarProduto"/>
-        
+
+      <div class="inputUser">
+        <img src="../img/lupa.svg" id="lupa" alt="">
+        <input type="text" name="Pesquisar por produto" id="pesquisarProduto" placeholder="Pesquisar por produtos">
         <button class="user">
-          <img src="./../img/UserIcon.png" alt="" />
-        </button>
+          <img src="../img/UserIcon.png" alt="">
+        </button>    
       </div>
-    </header>
-    <main>
+</header>
+  <main>
       <div id="filtrosBox">
         <div id="filtros">
           <button id="botaoTodos">Todos</button>
@@ -93,10 +101,10 @@
           <li>Descrição</li>
           <li>Ações</li>
         </ul>
-        <ul id="listaDeProdutos">
-          <li>
+        <ul id="listaDeProdutosDashboard">
+          <!-- <li>
             <div id="identProdutos">
-              <img src="../img/Panquecas.png" alt="" />
+              <img src="https://kenzie-academy-brasil.gitlab.io/fullstack/frontend/modulo2/sprint4/img/capstone-images/panqueca.png" alt="" />
               <h3>Panqueca de banana com aveia</h3>
             </div>
             
@@ -195,8 +203,11 @@
               <img src="../img/EditarIcon.png" alt="">
               <img src="../img/LixeiraIcon.png" alt="">
             </div>
-          </li>
+          </li> -->
+          
         </ul>
       </main>
+      <script type= "module" src="../js/scriptDashBoard.js"></script>
+      <script type = "module" src="../js/API.js"></script>
     </body>
     </html>
