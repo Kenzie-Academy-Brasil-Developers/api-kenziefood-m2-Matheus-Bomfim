@@ -30,7 +30,6 @@ async function templateProdutos(obj) {
 const produtos = await Api.produtosPublicos();
 
 produtos.forEach(element => {
-    console.log(element)
     templateProdutos(element)
 });
 
@@ -222,7 +221,7 @@ function loginUsuario(){
           `
           }
 
-          else{
+        else{
               const p = document.getElementById("falho")
               p.innerText = "Algo Deu Errado"
           }
@@ -324,8 +323,6 @@ function adicionaListeners(){
         element.addEventListener("click", (event) => {
             produtos.forEach(elem => {
                 if(event.currentTarget.id == elem.id){
-                    console.log("true")
-                    console.log(event.currentTarget.id)
                     let statusCompra = document.getElementById("divStatusCompra")
                     statusCompra.classList.remove("hidden")
                     let hidden = document.getElementById("hidden")
@@ -341,7 +338,5 @@ function adicionaListeners(){
         })
     });
 }
-
-
 
 loginUsuario()

@@ -210,12 +210,18 @@ document.addEventListener("click",async function(e){
             categoriaPani.classList.add('categoriaLi')
         }
         else if(userfilter[0].categoria == "Panificadora"){
-            categoriaPani.classList.remove('categoriaLi')
             categoriaPani.classList.add('categoriaAtivado')
+            categoriaBebidas.classList.remove('categoriaAtivado')
+            categoriaFrutas.classList.remove('categoriaAtivado')
+            categoriaFrutas.classList.add('categoriaLi')
+            categoriaBebidas.classList.add('categoriaLi')
         }
         else{
-            categoriaBebidas.classList.remove('categoriaLi')
             categoriaBebidas.classList.add('categoriaAtivado')
+            categoriaPani.classList.remove('categoriaAtivado')
+            categoriaFrutas.classList.remove('categoriaAtivado')
+            categoriaPani.classList.add('categoriaLi')
+            categoriaFrutas.classList.add('categoriaLi')
         }
 
         inputNome.value = userfilter[0].nome
@@ -287,7 +293,6 @@ function addProduto(){
         objCadastrar.descricao = inputDescricao.value
         objCadastrar.preco = inputValor.value
         objCadastrar.imagem = inputImg.value
-        console.log(objCadastrar)
         focus.style.display = 'none'
         cadastrarProdutos.style.display = 'none'
         const productUser = await Api.cadastrarProdutos(objCadastrar,localStorage.getItem("token"))
@@ -364,7 +369,6 @@ function editarProduto(){
         objEditar.descricao = inputDescricao.value
         objEditar.preco = inputValor.value
         objEditar.imagem = inputImg.value
-        console.log(objEditar)
         focus.style.display = 'none'
         editarProdutoContainer.style.display = 'none'
         

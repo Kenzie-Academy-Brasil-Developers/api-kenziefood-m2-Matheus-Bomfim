@@ -490,7 +490,20 @@ li {
   #carrinho{
     height: 50px;  
   }
-
+.textoCarrinho{
+  width: inherit;
+}
+.loginCadastro {
+  width: 180px;
+  height: 210px;
+  position: absolute;
+  margin: 90px;
+  background-color: darkgrey;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: none;
+}
   /* .containerCarrinho{
     width: 80vw;
     display: flex;
