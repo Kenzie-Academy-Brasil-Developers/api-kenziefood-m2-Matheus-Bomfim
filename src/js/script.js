@@ -294,7 +294,8 @@ function adicionandoEventListener(){
 adicionandoEventListener()
 
 document.addEventListener("click", (event) => {
-    if(event.target.src == "./src/img/lixeira.svg"){
+    console.log(event.target.src)
+    if(event.target.src == "http://127.0.0.1:5500/src/img/lixeira.svg"){
         let preco = event.path[2].children[1].children[2].innerHTML
         let precoNum = parseFloat(preco.split(" ")[1])
         event.path[2].style.display = "none"
