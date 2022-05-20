@@ -140,14 +140,13 @@ function loginUsuario(){
 
 
   async function templateDashboard(obj){
-
-    const listarProdutosDashboard = document.querySelector('#listaDeProdutosDashboard');
+      const listarProdutosDashboard = document.querySelector('#listaDeProdutosDashboard');
 
     
         listarProdutosDashboard.innerHTML += `
         <li>
             <div id="identProdutos">
-                <img src="${obj.imagem}">
+                <img src=${obj.imagem}>
                 <h3>${obj.nome}</h3>
             </div>
         
@@ -159,8 +158,8 @@ function loginUsuario(){
             </div>
         
             <div id="acoes">
-                <img src="../img/EditarIcon.png" id="acoesEditar">
-                <img src="../img/LixeiraIcon.png" id="acoesExcluir">
+                <img src="../img/EditarIcon.png" id="acoesEditar" class=${obj.id}>
+                <img src="../img/LixeiraIcon.png" id="acoesExcluir" class=${obj.id}>
             </div>
       </li>`;
    
@@ -182,20 +181,58 @@ fecharCadastro.addEventListener("click", function(){
 
     
 })
-// const editarProduto = document.getElementById('acoesEditar')
 const editarProdutoContainer = document.querySelector('.editarProdutoContainer')
 const excluirProdutoContainer = document.querySelector('#confirmarExclusao')
 const focus = document.querySelector('#focusBackground')
-
-document.addEventListener("click",function(e){
+let idPatch = ""
+document.addEventListener("click",async function(e){
     if(e.target.id == 'acoesEditar'){
+        idPatch = e.target.className
         focus.style.display = 'flex'
         editarProdutoContainer.style.display = 'flex'
         const fecharEditar = document.querySelector('#fecharEditar')
+        let produtosFilter = await Api.produtosPrivados(localStorage.getItem("token"))
+        let userfilter = produtosFilter.filter((obj)=>{return obj.id == e.target.className})
+        
+        const inputNome = document.querySelector('.editarNome')
+        const inputDescricao = document.querySelector('.editarDescricao')
+        const inputValor = document.querySelector('.editarValor')
+        const inputImg = document.querySelector('.editarImg')
+        const categoriaPani = document.querySelector('#editarCategoriaPani')
+        const categoriaBebidas = document.querySelector('#editarCategoriaBebidas')
+        const categoriaFrutas = document.querySelector('#editarCategoriaFrutas')
+
+        if(userfilter[0].categoria == "Frutas"){
+            categoriaFrutas.classList.add('categoriaAtivado')
+            categoriaBebidas.classList.remove('categoriaAtivado')
+            categoriaPani.classList.remove('categoriaAtivado')
+            categoriaBebidas.classList.add('categoriaLi')
+            categoriaPani.classList.add('categoriaLi')
+        }
+        else if(userfilter[0].categoria == "Panificadora"){
+            categoriaPani.classList.add('categoriaAtivado')
+            categoriaBebidas.classList.remove('categoriaAtivado')
+            categoriaFrutas.classList.remove('categoriaAtivado')
+            categoriaFrutas.classList.add('categoriaLi')
+            categoriaBebidas.classList.add('categoriaLi')
+        }
+        else{
+            categoriaBebidas.classList.add('categoriaAtivado')
+            categoriaPani.classList.remove('categoriaAtivado')
+            categoriaFrutas.classList.remove('categoriaAtivado')
+            categoriaPani.classList.add('categoriaLi')
+            categoriaFrutas.classList.add('categoriaLi')
+        }
+
+        inputNome.value = userfilter[0].nome
+        inputDescricao.value = userfilter[0].descricao
+        inputValor.value = userfilter[0].preco
+        inputImg.value = userfilter[0].imagem
+        
     }
     if(e.target.id == 'acoesExcluir'){
+        idPatch = e.target.className
         focus.style.display = 'flex'
-
         excluirProdutoContainer.style.display = 'flex'
         const fecharExclusao = document.querySelector("#fecharExclusao")
     }
@@ -223,39 +260,66 @@ function addProduto(){
     categoriaPani.addEventListener('click', function(){
         objCadastrar.categoria = ''
         objCadastrar.categoria = 'Panificadora'
-        categoriaPani.classList.remove('categoriaLi')
         categoriaPani.classList.add('categoriaAtivado')
         categoriaBebidas.classList.remove('categoriaAtivado')
         categoriaFrutas.classList.remove('categoriaAtivado')
+        categoriaFrutas.classList.add('categoriaLi')
+        categoriaBebidas.classList.add('categoriaLi')
     })
     categoriaBebidas.addEventListener('click', function(){
         objCadastrar.categoria = ''
         objCadastrar.categoria = 'Bebidas'
-        categoriaBebidas.classList.remove('categoriaLi')
         categoriaBebidas.classList.add('categoriaAtivado')
         categoriaPani.classList.remove('categoriaAtivado')
         categoriaFrutas.classList.remove('categoriaAtivado')
+        categoriaPani.classList.add('categoriaLi')
+        categoriaFrutas.classList.add('categoriaLi')
     })
     categoriaFrutas.addEventListener('click', function(){
         objCadastrar.categoria = ''
         objCadastrar.categoria = 'Frutas'
-        categoriaFrutas.classList.remove('categoriaLi')
         categoriaFrutas.classList.add('categoriaAtivado')
         categoriaBebidas.classList.remove('categoriaAtivado')
         categoriaPani.classList.remove('categoriaAtivado')
+        categoriaBebidas.classList.add('categoriaLi')
+        categoriaPani.classList.add('categoriaLi')
     })
 
     
     
 
-    botaoCadastrar.addEventListener('click', function(){
+    botaoCadastrar.addEventListener('click', async function(){
         objCadastrar.nome = inputNome.value
         objCadastrar.descricao = inputDescricao.value
         objCadastrar.preco = inputValor.value
         objCadastrar.imagem = inputImg.value
-        console.log(objCadastrar)
         focus.style.display = 'none'
         cadastrarProdutos.style.display = 'none'
+        const productUser = await Api.cadastrarProdutos(objCadastrar,localStorage.getItem("token"))
+        if(productUser.id){
+            const statusBox = document.getElementById("statusBox")
+            statusBox.style.display = "flex"
+            const statusmensagem = document.getElementById("statusMensagem")
+            statusmensagem.innerText = "Produto adicionado com sucesso"
+            const barraStatus = document.getElementById("barraStatus")
+            barraStatus.classList.add("statusSucesso")
+            setTimeout(()=>{
+                statusBox.style.display = "none"
+                window.location.reload()
+            },5000) 
+        }
+        else{
+            const statusBox = document.getElementById("statusBox")
+            statusBox.style.display = "flex"
+            const statusmensagem = document.getElementById("statusMensagem")
+            statusmensagem.innerText = "ERRO,Produto Não Adicionado"
+            const barraStatus = document.getElementById("barraStatus")
+            barraStatus.classList.add("statusErro")
+            setTimeout(()=>{
+                statusBox.style.display = "none"
+                window.location.reload()
+            },5000) 
+        }
     })
 }
 addProduto()
@@ -274,45 +338,115 @@ function editarProduto(){
     categoriaPani.addEventListener('click', function(){
         objEditar.categoria = ''
         objEditar.categoria = 'Panificadora'
-        categoriaPani.classList.remove('categoriaLi')
         categoriaPani.classList.add('categoriaAtivado')
         categoriaBebidas.classList.remove('categoriaAtivado')
         categoriaFrutas.classList.remove('categoriaAtivado')
+        categoriaFrutas.classList.add('categoriaLi')
+        categoriaBebidas.classList.add('categoriaLi')
     })
     categoriaBebidas.addEventListener('click', function(){
         objEditar.categoria = ''
         objEditar.categoria = 'Bebidas'
-        categoriaBebidas.classList.remove('categoriaLi')
         categoriaBebidas.classList.add('categoriaAtivado')
         categoriaPani.classList.remove('categoriaAtivado')
         categoriaFrutas.classList.remove('categoriaAtivado')
+        categoriaPani.classList.add('categoriaLi')
+        categoriaFrutas.classList.add('categoriaLi')
     })
     categoriaFrutas.addEventListener('click', function(){
         objEditar.categoria = ''
         objEditar.categoria = 'Frutas'
-        categoriaFrutas.classList.remove('categoriaLi')
         categoriaFrutas.classList.add('categoriaAtivado')
         categoriaBebidas.classList.remove('categoriaAtivado')
         categoriaPani.classList.remove('categoriaAtivado')
+        categoriaBebidas.classList.add('categoriaLi')
+        categoriaPani.classList.add('categoriaLi')
     })
 
 
-    salvarAlteracoes.addEventListener('click', function(){
-        console.log('oi')
+    salvarAlteracoes.addEventListener('click', async function(){
         objEditar.nome = inputNome.value
         objEditar.descricao = inputDescricao.value
         objEditar.preco = inputValor.value
         objEditar.imagem = inputImg.value
-        console.log(objEditar)
         focus.style.display = 'none'
         editarProdutoContainer.style.display = 'none'
+        
+        const productUser = await Api.editarProduto(idPatch,objEditar,localStorage.getItem("token"))
+        if(productUser == "Produto Atualizado"){
+            const statusBox = document.getElementById("statusBox")
+            statusBox.style.display = "flex"
+            const statusmensagem = document.getElementById("statusMensagem")
+            statusmensagem.innerText = "Produto Editado com sucesso"
+            const barraStatus = document.getElementById("barraStatus")
+            barraStatus.classList.add("statusSucesso")
+            setTimeout(()=>{
+                statusBox.style.display = "none"
+                window.location.reload()
+            },5000) 
+        }
+        else{
+            const statusBox = document.getElementById("statusBox")
+            statusBox.style.display = "flex"
+            const statusmensagem = document.getElementById("statusMensagem")
+            statusmensagem.innerText = "ERRO,Produto Não Editado"
+            const barraStatus = document.getElementById("barraStatus")
+            barraStatus.classList.add("statusErro")
+            setTimeout(()=>{
+                statusBox.style.display = "none"
+                window.location.reload()
+            },5000) 
+        }
     })
+
 }
 editarProduto()
 
+function deletarProduto(){
+    document.addEventListener("click",async(e)=>{
+        if(e.target.id == "true"){
+            await Api.deletarProduto(idPatch,localStorage.getItem("token"))
+            const statusBox = document.getElementById("statusBox")
+            statusBox.style.display = "flex"
+            const statusmensagem = document.getElementById("statusMensagem")
+            statusmensagem.innerText = "Excluido com sucesso"
+            const barraStatus = document.getElementById("barraStatus")
+            barraStatus.classList.add("statusSucesso")
+            listarProdutosDashboard.innerHTML = ""
+            const mainExclusao = document.getElementById("confirmarExclusao")
+            mainExclusao.style.display =  "none"
+            const focusblackground = document.getElementById("focusBackground")
+                focusblackground.style.display = "none"
+            setTimeout(()=>{
+                statusBox.style.display = "none"
+                window.location.reload()
+            },3000) 
+        }
+        if(e.target.id == "false"){
+            const statusBox = document.getElementById("statusBox")
+            statusBox.style.display = "flex"
+            const statusmensagem = document.getElementById("statusMensagem")
+            statusmensagem.innerText = "Produto Não Excluido"
+            const barraStatus = document.getElementById("barraStatus")
+            barraStatus.classList.add("statusErro")
+            const mainExclusao = document.getElementById("confirmarExclusao")
+            mainExclusao.style.display =  "none"
+            listarProdutosDashboard.innerHTML = ""
+            const focusblackground = document.getElementById("focusBackground")
+            focusblackground.style.display = "none"
+            setTimeout(()=>{
+                statusBox.style.display = "none"
+                window.location.reload()
+            },3000) 
+        }
+    })
+}
+deletarProduto()
+
+
 const listarProdutosDashboard = document.querySelector('#listaDeProdutosDashboard');
 
-const produtos = await Api.produtosPublicos();
+const produtos = await Api.produtosPrivados(localStorage.getItem("token"));
 
 produtos.forEach(element => {
     templateDashboard(element)

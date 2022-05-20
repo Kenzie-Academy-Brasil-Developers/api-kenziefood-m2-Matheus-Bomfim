@@ -1,6 +1,4 @@
 class Api{
-    static token = ""
-
     static async cadastroUsuario(user){
         const response = await fetch("https://api-kenzie-food.herokuapp.com/auth/register",{
             method:"POST",
@@ -38,29 +36,30 @@ class Api{
         return response
     }
 
-    static async cadastrarProdutos(product){
+    static async cadastrarProdutos(product,token){
         const response = await fetch("https://api-kenzie-food.herokuapp.com/my/products",{
             method:"POST",
-            headers: {"Content-Type": "application/json","Authorization": `Bearer ${Api.token}`},
+            headers: {"Content-Type": "application/json","Authorization": `Bearer ${token}`},
             body: JSON.stringify(product)
         }).then(response => response.json()).then(response => response).catch(err => console.error(err))
 
         return response
     }
 
-    static async editarProduto(id,product){
+    static async editarProduto(id,product,token){
         const response = await fetch(`https://api-kenzie-food.herokuapp.com/my/products/${id}`,{
             method:"PATCH",
-            headers: {"Content-Type": "application/json","Authorization": `Bearer ${Api.token}`},
+            headers: {"Content-Type": "application/json","Authorization": `Bearer ${token}`},
             body: JSON.stringify(product)
         }).then(response => response.json()).then(response => response).catch(err => console.error(err))
 
         return response
     }
 
-    static async deletarProduto(id){
+    static async deletarProduto(id,token){
         const response = await fetch(`https://api-kenzie-food.herokuapp.com/my/products/${id}`,{
-            method:"DELETE"
+            method:"DELETE",
+            headers: {"Authorization": `Bearer ${token}`}
         }).then(response => response.json()).then(response => response).catch(err => console.error(err))
 
         return response
