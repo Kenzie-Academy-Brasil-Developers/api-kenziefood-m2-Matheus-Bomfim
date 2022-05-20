@@ -314,7 +314,7 @@ document.addEventListener("click", (event) => {
 
 document.addEventListener("click",(e)=>{
     if(e.target.id == "dashboard"){
-        window.location = "./src/pages/indexDashboard.html"
+        window.location = "./src/pages/index.html"
     }
 })
 
