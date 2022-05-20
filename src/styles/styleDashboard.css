@@ -547,6 +547,7 @@ header {
   background: #ff2253;
   border: 1.5px solid #ff2253;
   border-radius: 32px;
+  cursor: pointer;
 
   font-family: "Inter";
   font-style: normal;
@@ -788,7 +789,7 @@ header {
   align-items: center;
   width: 496px;
   height: 213px;
-  left: 552px;
+  left: 450px;
   top: 122px;
   
   background: #ffffff;
@@ -804,7 +805,7 @@ header {
   position: absolute;
   width: 496px;
   height: 70px;
-  left: 552px;
+  left: 450px;
   top: 52px;
 
   /* grey-1 */
@@ -824,6 +825,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .botaoExclusao {
@@ -842,12 +844,16 @@ header {
   border: 1.5px solid #f8f9fa;
   border-radius: 32px;
   margin: 10px;
+  cursor: pointer;
+}
+#fecharExclusao{
+cursor: pointer;
 }
 
 #statusBox {
   margin-top: 450px;
   margin-left: 800px;
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -941,7 +947,7 @@ header {
 
 #fecharlogincadastro,
 #fecharcadastro,
-#fecharmain {
+#fecharmain{
   cursor: pointer;
   border: none;
   background: none;

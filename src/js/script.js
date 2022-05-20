@@ -30,7 +30,6 @@ async function templateProdutos(obj) {
 const produtos = await Api.produtosPublicos();
 
 produtos.forEach(element => {
-
     templateProdutos(element)
 });
 
@@ -222,7 +221,7 @@ function loginUsuario(){
           `
           }
 
-          else{
+        else{
               const p = document.getElementById("falho")
               p.innerText = "Algo Deu Errado"
           }
@@ -295,7 +294,8 @@ adicionandoEventListener()
 
 document.addEventListener("click", (event) => {
     
-    if(event.target.src == "https://ideal-barnacle-938c90fd.pages.github.io/src/img/lixeira.svg"){
+  if(event.target.className == "imgExcluir"){
+
         let preco = event.path[2].children[1].children[2].innerHTML
         let precoNum = parseFloat(preco.split(" ")[1])
         event.path[2].style.display = "none"
@@ -315,7 +315,7 @@ document.addEventListener("click", (event) => {
 
 document.addEventListener("click",(e)=>{
     if(e.target.id == "dashboard"){
-        window.location = "./src/pages/indexDashboard.html"
+        window.location = "./src/pages/index.html"
     }
 })
 
@@ -341,7 +341,5 @@ function adicionaListeners(){
         })
     });
 }
-
-
 
 loginUsuario()
