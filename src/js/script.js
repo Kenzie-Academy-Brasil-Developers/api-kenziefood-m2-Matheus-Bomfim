@@ -46,6 +46,7 @@ busca.onkeyup = (event) => {
             templateProdutos(element)
         }
     });
+    adicionaListeners()
 }
 
 let btnTodos = document.getElementById("btnTodos")
@@ -55,9 +56,11 @@ let btnBebidas = document.getElementById("btnBebidas")
 
 btnTodos.addEventListener("click", () => {
     container.innerHTML = ""
+    
     produtos.forEach(element => {
         templateProdutos(element)
     });
+    adicionaListeners()
 })
 
 btnPanificadora.addEventListener("click", () => {
@@ -67,6 +70,7 @@ btnPanificadora.addEventListener("click", () => {
             templateProdutos(element)
         }
     });
+    adicionaListeners()
 })
 
 btnFrutas.addEventListener("click", () => {
@@ -76,6 +80,7 @@ btnFrutas.addEventListener("click", () => {
             templateProdutos(element)
         }
     });
+    adicionaListeners()
 })
 
 btnBebidas.addEventListener("click", () => {
@@ -85,6 +90,7 @@ btnBebidas.addEventListener("click", () => {
             templateProdutos(element)
         }
     });
+    adicionaListeners()
 })
 
 
@@ -255,7 +261,7 @@ function criaCardCarrinho(obj){
 
 }
 
-let btnAdicionarCarrinho = document.querySelectorAll("button")
+
 
 let contador = 0
 let quantidade = document.getElementById("textoNum")
@@ -264,6 +270,7 @@ let precoTotal = 0
 
 
 function adicionandoEventListener(){
+    let btnAdicionarCarrinho = document.querySelectorAll("button")
     btnAdicionarCarrinho.forEach(element => {
         element.addEventListener("click", (event) => {
             produtos.forEach(elem => {
@@ -283,6 +290,7 @@ function adicionandoEventListener(){
         })
     });
 }
+
 adicionandoEventListener()
 
 document.addEventListener("click", (event) => {
@@ -309,6 +317,30 @@ document.addEventListener("click",(e)=>{
         window.location = "./src/pages/indexDashboard.html"
     }
 })
+
+function adicionaListeners(){
+    let btn = document.querySelectorAll("button")
+    btn.forEach(element => {
+        element.addEventListener("click", (event) => {
+            produtos.forEach(elem => {
+                if(event.currentTarget.id == elem.id){
+                    console.log("true")
+                    console.log(event.currentTarget.id)
+                    let statusCompra = document.getElementById("divStatusCompra")
+                    statusCompra.classList.remove("hidden")
+                    let hidden = document.getElementById("hidden")
+                    hidden.classList.add("hidden")
+                    containerCarrinho.classList = "containerCarrinhoCheio"
+                    contador++
+                    quantidade.innerText = contador
+                    precoTotal += elem.preco
+                    total.innerText = `R$ ${precoTotal}`
+                    criaCardCarrinho(elem)
+                }
+            })
+        })
+    });
+}
 
 
 
