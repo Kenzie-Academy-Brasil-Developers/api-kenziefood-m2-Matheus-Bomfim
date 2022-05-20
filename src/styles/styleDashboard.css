@@ -1,0 +1,963 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap");
+header {
+  width: 100vw;
+  height: 73px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 0px 40px -18px rgba(0, 0, 0, 0.25);
+  margin-bottom: 40px;
+}
+
+.container_texto {
+  background-color: #ffffff;
+  width: 122px;
+  height: 33px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-left: 117px;
+}
+
+.texto {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.p1 {
+  font-size: 22px;
+  line-height: 33px;
+  width: 74px;
+  text-align: left;
+  height: 33px;
+  color: rgba(33, 37, 41, 1);
+}
+.p2 {
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+  color: rgba(255, 34, 83, 1);
+}
+
+.inputUser {
+  display: flex;
+  margin-right: 115px;
+}
+
+#pesquisarProduto {
+  width: 263px;
+  height: 49px;
+  background-color: #e9ecef;
+  border: none;
+  color: #868e96;
+  font-size: 16px;
+  font-family: "Inter";
+  font-weight: 400;
+  border-radius: 12px;
+  text-align: initial;
+  padding-left: 48px;
+}
+#lupa {
+  position: relative;
+  left: 35px;
+}
+
+.user {
+  border-radius: 100%;
+  border: none;
+  margin-left: 10px;
+  background: none;
+  cursor: pointer;
+}
+#filtrosBox {
+  margin-left: 115px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 45px;
+}
+
+#filtros {
+  display: flex;
+  align-content: center;
+}
+
+#filtros button {
+  margin-right: 15px;
+}
+#filtrosBox button:hover {
+  cursor: pointer;
+}
+
+#botaoTodos {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 15px;
+  width: 88px;
+  height: 48px;
+  left: 117px;
+  top: 116px;
+  background: #ff2253;
+  border: 1.5px solid #ff2253;
+  border-radius: 32px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #f8f9fa;
+}
+
+#botaoPani {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 15px;
+  width: 170px;
+  height: 48px;
+  left: 233px;
+  top: 116px;
+  background: #fff7f4;
+  border: 1.5px solid #fff7f4;
+  border-radius: 32px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #212529;
+}
+
+#botaoFrutas {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 15px;
+  width: 123px;
+  height: 48px;
+  left: 431px;
+  top: 116px;
+  background: #fff1f4;
+  border: 1.5px solid #fff1f4;
+  border-radius: 32px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #212529;
+}
+
+#botaoBebidas {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 15px;
+  width: 136px;
+  height: 48px;
+  left: 582px;
+  top: 116px;
+  background: #f3eef5;
+  border: 1.5px solid #f3eef5;
+  border-radius: 32px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #212529;
+}
+
+#addNovoProduto {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 15px;
+  width: 217px;
+  height: 48px;
+  left: 1268px;
+  top: 116px;
+  background: #ff2253;
+  border: 1.5px solid #ff2253;
+  border-radius: 32px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #f8f9fa;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin-right: 150px;
+}
+
+#transicao {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+#transicao li {
+  width: 70px;
+  height: 24px;
+  left: 927px;
+  top: 222px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #868e96;
+}
+#listaDeProdutosDashboard {
+  display: flex;
+  flex-direction: column;
+}
+
+#listaDeProdutosDashboard li {
+  display: flex;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 115px;
+  margin-right: 150px;
+  margin-bottom: 15px;
+}
+#listaDeProdutosDashboard li:hover {
+  background-color: #f2f2f7;
+}
+#identProdutos {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+#listaDeProdutosDashboard li img {
+  width: 32px;
+  height: 32px;
+
+  background: url(.jpg);
+  border-radius: 150px;
+}
+#listaDeProdutosDashboard li h3 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #212529;
+  margin-left: 20px;
+}
+#categoria {
+  display: flex;
+}
+
+#categoria p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  width: 93px;
+  height: 27px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #868e96;
+}
+
+#categoria p:hover {
+  background: #f1f4f4;
+  cursor: pointer;
+}
+
+#descricaoDashboard {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #868e96;
+  max-width: 285px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#acoes {
+  display: flex;
+  margin-right: 15px;
+}
+#acoes img {
+  margin-left: 10px;
+}
+#acoes img:hover {
+  opacity: 60%;
+  cursor: pointer;
+}
+
+.cadastrarProdutoContainer {
+  display: flex;
+  position: absolute;
+  top: 3%;
+  left: 29%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 496px;
+  height: 600px;
+  background: #ffffff;
+  border-radius: 0px 0px 8px 8px;
+  padding-bottom: 15px;
+  display: none;
+}
+.headerCadastroProduto {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 70px;
+  justify-content: center;
+  align-items: center;
+  gap: 256px;
+  background: #f8f9fa;
+  border-radius: 8px 8px 0px 0px;
+}
+.headerCadastroProduto img{
+  cursor: pointer;
+}
+
+.headerCadastroProduto h3 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+}
+.mainCadastroProduto {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.cadastrarProdutoContainer label {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #212529;
+  margin-bottom: 15px;
+}
+
+.cadastrarProdutoContainer label input {
+  display: block;
+  margin-top: 6px;
+}
+
+.cadastroNome {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 26px 2px 26px 20px;
+  gap: 10px;
+  width: 440px;
+  height: 52px;
+  background: #f8f9fa;
+  border: 1.5px solid #dee2e6;
+  border-radius: 12px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+.cadastroNome input ::placeholder {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 0px;
+  color: #868e96;
+}
+
+.cadastroDescricao {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 20px 20px;
+  gap: 10px;
+  width: 440px;
+  height: 80px;
+  background: #f8f9fa;
+  border: 1.5px solid #dee2e6;
+  border-radius: 12px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.cadastroDescricao::placeholder {
+  width: 400px;
+  height: 24px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #868e96;
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+}
+
+#categoriasUl {
+  display: flex;
+  justify-content: space-evenly;
+}
+.categoriaLi {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 15px;
+  width: 136px;
+  height: 40px;
+  left: 733px;
+  top: 423px;
+  background: #F8F9FA;
+  border: 1.5px solid #F8F9FA;
+  border-radius: 32px; 
+  cursor: pointer;
+}
+.categoriaAtivado {
+  background: #ff2253;
+  color: #f8f9fa;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 15px;
+  width: 136px;
+  height: 40px;
+  border: 1.5px solid #f8f9fa;
+  border-radius: 32px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+.cadastroValor {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 26px 2px 26px 20px;
+  gap: 10px;
+  width: 440px;
+  height: 52px;
+  background: #f8f9fa;
+  border: 1.5px solid #dee2e6;
+  border-radius: 12px;
+}
+
+.cadastroValor::placeholder {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #868e96;
+}
+
+.cadastroImg {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 26px 2px 26px 20px;
+  gap: 10px;
+
+  width: 440px;
+  height: 52px;
+  background: #f8f9fa;
+  border: 1.5px solid #dee2e6;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+.cadastroImg::placeholder {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #868e96;
+}
+#botaoCadastrar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 15px;
+  width: 440px;
+  height: 52px;
+  background: #ff2253;
+  border: 1.5px solid #ff2253;
+  border-radius: 32px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #f8f9fa;
+}
+.editarProdutoContainer {
+  display: flex;
+  position: absolute;
+  top: 3%;
+  left: 29%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 496px;
+  height: 600px;
+  background: #ffffff;
+  border-radius: 0px 0px 8px 8px;
+  padding-bottom: 15px;
+  display: none;
+}
+.headerEditarProduto {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 70px;
+  justify-content: center;
+  align-items: center;
+  gap: 256px;
+  background: #f8f9fa;
+  border-radius: 8px 8px 0px 0px;
+}
+.headerEditarProduto img{
+  cursor: pointer;
+}
+.headerEditarProduto h3 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+}
+.mainEditarProduto {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.editarProdutoContainer label {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #212529;
+  margin-bottom: 15px;
+}
+.editarProdutoContainer label input {
+  display: block;
+  margin-top: 6px;
+}
+.editarNome {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 26px 2px 26px 20px;
+  gap: 10px;
+  width: 440px;
+  height: 52px;
+  background: #f8f9fa;
+  border: 1.5px solid #dee2e6;
+  border-radius: 12px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+.editarNome input ::placeholder {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 0px;
+  color: #868e96;
+}
+.editarDescricao {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 20px 20px;
+  gap: 10px;
+  width: 440px;
+  height: 80px;
+  background: #f8f9fa;
+  border: 1.5px solid #dee2e6;
+  border-radius: 12px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+.editarDescricao::placeholder {
+  width: 400px;
+  height: 24px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #868e96;
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+}
+.editarValor {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 26px 2px 26px 20px;
+  gap: 10px;
+  width: 440px;
+  height: 52px;
+  background: #f8f9fa;
+  border: 1.5px solid #dee2e6;
+  border-radius: 12px;
+}
+
+.editarValor::placeholder {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #868e96;
+}
+
+.editarImg {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 26px 2px 26px 20px;
+  gap: 10px;
+
+  width: 440px;
+  height: 52px;
+  background: #f8f9fa;
+  border: 1.5px solid #dee2e6;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+.editarImg::placeholder {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #868e96;
+}
+
+#acoesEditar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#botaoEditarExcluir {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 15px;
+  width: 192px;
+  height: 52px;
+  left: 580px;
+  top: 709px;
+  background: #f8f9fa;
+  border: 1.5px solid #f8f9fa;
+  border-radius: 32px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #868e96;
+  cursor: pointer;
+}
+
+#botaoEditarSalvar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 15px;
+  width: 240px;
+  height: 52px;
+  left: 780px;
+  top: 709px;
+  background: #ff2253;
+  border: 1.5px solid #ff2253;
+  border-radius: 32px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #f8f9fa;
+  cursor: pointer;
+
+}
+
+#confirmarExclusao {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  display: none;
+}
+
+
+#mainExclusao {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 496px;
+  height: 213px;
+  left: 552px;
+  top: 122px;
+  
+  background: #ffffff;
+  border-radius: 0px 0px 8px 8px;
+}
+#headerExclusao {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 256px;
+
+  position: absolute;
+  width: 496px;
+  height: 70px;
+  left: 552px;
+  top: 52px;
+
+  /* grey-1 */
+
+  background: #f8f9fa;
+  border-radius: 8px 8px 0px 0px;
+}
+#headerExclusao h3 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+}
+#botoesConfirmar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.botaoExclusao {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 15px;
+  width: 210px;
+  height: 52px;
+  left: 580px;
+  top: 248px;
+  background: #f8f9fa;
+  border: 1.5px solid #f8f9fa;
+  border-radius: 32px;
+  margin: 10px;
+}
+
+#statusBox {
+  margin-top: 450px;
+  margin-left: 800px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  display: none;
+}
+#headerStatus {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 28px;
+  gap: 256px;
+  /* position: absolute; */
+  width: 440px;
+  height: 30px;
+  background: #f8f9fa;
+  border-radius: 8px 8px 0px 0px;
+}
+#headerStatus h3 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+#mainStatus {
+  display: flex;
+  align-items: center;
+  padding-left: 28px;
+  width: 468px;
+  height: 65px;
+  background: #ffffff;
+  border-radius: 0px 0px 8px 8px;
+}
+#mainStatus span {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #212529;
+}
+#barraStatus {
+  width: 496px;
+  height: 8px;
+
+  border-radius: 0px 0px 8px 8px;
+}
+
+.statusSucesso {
+  background: #39df8f;
+}
+.statusErro {
+  background: #ff2253;
+}
+
+.loginCadastro {
+  width: 180px;
+  height: 210px;
+  position: absolute;
+  margin: 64px 1162px;
+  background-color: darkgrey;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: none;
+}
+.loginCadastro > input {
+  width: 150px;
+  margin: 10px;
+  border-radius: 10%;
+}
+.loginCadastro > a {
+  cursor: pointer;
+  margin: 10px;
+}
+#fazercadastro, #logout, #fazerlogin, #dashboard{
+  background-color: #ff2253;
+  border: none;
+  border-radius: 10%;
+  width: 120px;
+  height: 30px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#fecharlogincadastro,
+#fecharcadastro,
+#fecharmain {
+  cursor: pointer;
+  border: none;
+  background: none;
+  margin-left: 130px;
+  margin-bottom: 10px;
+}
+
+#fazercadastro:hover,
+#fazercadastro:hover,
+#logout:hover {
+  transform: scale(1.1);
+}
+#focusBackground {
+  position: absolute;
+  width: 100vmax;
+  height: 100vmax;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+}
