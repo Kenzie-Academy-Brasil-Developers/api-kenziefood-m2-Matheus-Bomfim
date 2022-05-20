@@ -491,17 +491,19 @@ btnBebidas.addEventListener("click", () => {
     });
 })
 
+
 let busca = document.getElementById("pesquisarProduto")
 let container = document.getElementById("listaDeProdutosDashboard")
 let array = await Api.produtosPrivados(localStorage.getItem("token"))
-console.log(localStorage.getItem("token"))
-console.log(array)
+
+
 busca.onkeyup = (event) => {
+
     let dado = busca.value
     container.innerHTML = ""
     array.forEach(element => {
         if(element.nome.toUpperCase().includes(dado.toUpperCase().trim()) == true){
-            templateProdutos(element)
+            templateDashboard(element)
         }
     });
     adicionaListeners()
