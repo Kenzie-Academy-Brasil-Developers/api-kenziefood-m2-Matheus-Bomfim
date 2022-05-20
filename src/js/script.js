@@ -293,7 +293,9 @@ function adicionandoEventListener(){
 adicionandoEventListener()
 
 document.addEventListener("click", (event) => {
-    if(event.target.className == "imgExcluir"){
+    
+  if(event.target.className == "imgExcluir"){
+
         let preco = event.path[2].children[1].children[2].innerHTML
         let precoNum = parseFloat(preco.split(" ")[1])
         event.path[2].style.display = "none"
@@ -323,6 +325,7 @@ function adicionaListeners(){
         element.addEventListener("click", (event) => {
             produtos.forEach(elem => {
                 if(event.currentTarget.id == elem.id){
+
                     let statusCompra = document.getElementById("divStatusCompra")
                     statusCompra.classList.remove("hidden")
                     let hidden = document.getElementById("hidden")
